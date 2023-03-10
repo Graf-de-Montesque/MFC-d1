@@ -19,10 +19,10 @@ public class StudentOrderValidator {
     // конструктор
     public StudentOrderValidator(){ 
         cityRegisterVal = new CityRegisterValidator();
-        weddingVal = new WeddingValidator();
-        studentVal = new StudentValidator();
-        childrenVal = new ChildrenValidator();
-        mailSender = new MailSender();
+//        weddingVal = new WeddingValidator();
+//        studentVal = new StudentValidator();
+//        childrenVal = new ChildrenValidator();
+//        mailSender = new MailSender();
     }
     // основная функция
     // запуск проверок
@@ -37,15 +37,15 @@ public class StudentOrderValidator {
 //    }
     for(StudentOrder so:soArray){
         checkOneOrder(so);
-    }
+        }
     }
     //запускаем проверки
     public void checkOneOrder(StudentOrder so){
     AnswerRegister cityAnswer = checkCityRegister(so);
-    AnswerStudent studAns = checkStudent(so);
-    AnswerWedding wedAns = checkMarried(so);
-    AnswerChildren childAns = checkChildren(so);
-    sendMail(so);
+//    AnswerStudent studAns = checkStudent(so);
+//    AnswerWedding wedAns = checkMarried(so);
+//    AnswerChildren childAns = checkChildren(so);
+//    sendMail(so);
     }
 
     // считывание заявки
@@ -55,6 +55,7 @@ public class StudentOrderValidator {
         //создание 3 заявок
         for(int c = 0; c < soArray.length ; c++){
             soArray[c] = SaveStudentOrder.buildStudentOrder(c);
+            
         }
         return soArray;
     }    
