@@ -1,6 +1,6 @@
 package pkg3iteration.studentorder.domain;
 
-public class CityRegisterCheckerResponse {
+public class CityRegisterResponse {
   
     private boolean existing;
     private Boolean temporal;

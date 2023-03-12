@@ -2,14 +2,14 @@ package pkg3iteration.studentorder.validator;
 
 import exception.CityRegisterException;
 import pkg3iteration.studentorder.domain.Adult;
-import pkg3iteration.studentorder.domain.CityRegisterCheckerResponse;
+import pkg3iteration.studentorder.domain.CityRegisterResponse;
 import pkg3iteration.studentorder.domain.Person;
 
 public class FakeCityRegisterChecker implements CityRegisterChecker {
      @Override
-     public CityRegisterCheckerResponse checkPerson(Person person)
+     public CityRegisterResponse checkPerson(Person person)
              throws CityRegisterException{
-         CityRegisterCheckerResponse res = new CityRegisterCheckerResponse();
+         CityRegisterResponse res = new CityRegisterResponse();
         if (person instanceof Adult){
             System.out.println("check Person Run");
             Adult temp = (Adult)person;
