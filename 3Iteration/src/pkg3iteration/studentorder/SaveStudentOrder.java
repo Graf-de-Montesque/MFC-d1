@@ -3,6 +3,7 @@ package pkg3iteration.studentorder;
 import java.time.LocalDate;
 import java.time.Month;
 import pkg3iteration.studentorder.domain.Adult;
+import pkg3iteration.studentorder.domain.Child;
 import pkg3iteration.studentorder.domain.StudentOrder;
 
 public class SaveStudentOrder {
@@ -38,9 +39,21 @@ public class SaveStudentOrder {
         wife.setIssueDepartment("Отдел полиции № " +id);
         wife.setStudentId("" + (200000 + id));
         
+        
+        Child child1 = new Child("MSveta", "Ruslanovna", "Kukushka", LocalDate.of(1999,4,21));
+        child1.setCertificateNumber(""+(300000 + id));
+        child1.setIssueDate(LocalDate.of(2018, 7, 19));
+        child1.setIssueDepartment("Отдел ЗАГС №" + id);
+        
+        Child child2 = new Child("Pipka", "Ruslanovna", "Smackthet", LocalDate.of(1999,4,21));
+        child2.setCertificateNumber(""+(400000 + id));
+        child2.setIssueDate(LocalDate.of(2018, 7, 19));
+        child2.setIssueDepartment("Отдел ЗАГС №" + id);
+        
         so.setHusband(husband);
         so.setWife(wife);
-        
+        so.addChild(child1);
+        so.addChild(child2);
         /*удалить */
         System.out.println("Заявка создана");
         
