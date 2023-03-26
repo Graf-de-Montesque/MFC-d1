@@ -1,6 +1,7 @@
 package pkg3iteration.studentorder.validator;
 
 import exception.CityRegisterException;
+import exception.TransportException;
 import pkg3iteration.studentorder.domain.Adult;
 import pkg3iteration.studentorder.domain.CityRegisterResponse;
 import pkg3iteration.studentorder.domain.Person;
@@ -8,7 +9,7 @@ import pkg3iteration.studentorder.domain.Person;
 public class FakeCityRegisterChecker implements CityRegisterChecker {
      @Override
      public CityRegisterResponse checkPerson(Person person)
-             throws CityRegisterException{
+             throws CityRegisterException, TransportException {
          CityRegisterResponse res = new CityRegisterResponse();
         if (person instanceof Adult){
             System.out.println("check Person Run");
@@ -23,7 +24,11 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
              res.setExisting(false);
             }
             if(tempPS.equals("100002") || tempPS.equals("200002")){
-             CityRegisterException ex = new CityRegisterException("Fake ERROR");
+             CityRegisterException ex = new CityRegisterException("1212121");
+            throw ex;
+            }
+            if(tempPS.equals("100003") || tempPS.equals("200003")){
+             TransportException ex = new TransportException("TransportError"+ tempPS);
             throw ex;
             }
         }

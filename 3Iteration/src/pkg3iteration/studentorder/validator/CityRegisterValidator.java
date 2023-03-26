@@ -1,6 +1,7 @@
 package pkg3iteration.studentorder.validator;
 
 import exception.CityRegisterException;
+import exception.TransportException;
 import java.util.Iterator;
 import java.util.List;
 import pkg3iteration.studentorder.domain.AnswerRegister;
@@ -34,11 +35,24 @@ public class CityRegisterValidator {
          return ans;  
     }
     private AnswerCityRegisterItem checkPerson(Person person){
+        AnswerCityRegisterItem.CityStatus status = null;
+        AnswerCityRegisterItem.CityError error = null;
         try{
-           CityRegisterResponse cans = personChecker.checkPerson(person);
+           CityRegisterResponse tmp = personChecker.checkPerson(person);
+           status = tmp.isExisting() ? 
+                    AnswerCityRegisterItem.CityStatus.YES:
+                    AnswerCityRegisterItem.CityStatus.NO;
         } catch(CityRegisterException ex) {
          ex.printStackTrace(System.out);
+         status = AnswerCityRegisterItem.CityStatus.ERROR;
+         error = new AnswerCityRegisterItem.CityError(ex.getCode(), ex.getMessage());
         }
-        return null;
+          catch(TransportException ex) {
+         ex.printStackTrace(System.out);
+         status = AnswerCityRegisterItem.CityStatus.ERROR;
+         error = new AnswerCityRegisterItem.CityError("No_grn", ex.getMessage());
+        }
+       AnswerCityRegisterItem ans = new AnswerCityRegisterItem(status, person, error);
+        return ans;
     }
 }
