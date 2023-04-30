@@ -55,15 +55,9 @@ public class StudentOrderValidator {
         //переменная для массива заявок
         List <StudentOrder> soList = new LinkedList<>();
         //создание 3 заявок
-<<<<<<< HEAD
-        for(int c = 0; c < soArray.length ; c++){
-            soArray[c] = SaveStudentOrder.buildStudentOrder(c);
-            
-=======
         for(int c = 0; c < 5; c++){
             StudentOrder so = SaveStudentOrder.buildStudentOrder(c);
             soList.add(so);
->>>>>>> cc3facac232c6c92710c709d3187f3ce9875f5a1
         }
         return soList;
     }    
