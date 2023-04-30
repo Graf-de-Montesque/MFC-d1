@@ -1,5 +1,7 @@
 package pkg3iteration.studentorder.validator;
 
+import java.util.LinkedList;
+import java.util.List;
 import pkg3iteration.studentorder.SaveStudentOrder;
 import pkg3iteration.studentorder.domain.AnswerChildren;
 import pkg3iteration.studentorder.domain.AnswerRegister;
@@ -31,11 +33,11 @@ public class StudentOrderValidator {
         sov.checkAll();
     } // обобщающая функция проверки
     public void checkAll(){
-    StudentOrder[] soArray = readStudentOrders();
+    List <StudentOrder> soList = readStudentOrders();
 //    for(int c = 0; c < soArray.length; c++){
 //        checkOneOrder(soArray[c]);
 //    }
-    for(StudentOrder so:soArray){
+    for(StudentOrder so:soList){
         checkOneOrder(so);
         }
     }
@@ -49,15 +51,21 @@ public class StudentOrderValidator {
     }
 
     // считывание заявки
-    public StudentOrder[] readStudentOrders(){ 
+    public List <StudentOrder> readStudentOrders(){ 
         //переменная для массива заявок
-        StudentOrder[] soArray = new StudentOrder[3];
+        List <StudentOrder> soList = new LinkedList<>();
         //создание 3 заявок
+<<<<<<< HEAD
         for(int c = 0; c < soArray.length ; c++){
             soArray[c] = SaveStudentOrder.buildStudentOrder(c);
             
+=======
+        for(int c = 0; c < 5; c++){
+            StudentOrder so = SaveStudentOrder.buildStudentOrder(c);
+            soList.add(so);
+>>>>>>> cc3facac232c6c92710c709d3187f3ce9875f5a1
         }
-        return soArray;
+        return soList;
     }    
     public AnswerRegister checkCityRegister(StudentOrder so){
         return cityRegisterVal.checkCityRegister(so);
