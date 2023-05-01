@@ -26,6 +26,7 @@ public class DictionaryDaoImpl implements DictionaryDao
            return conn;
     }       
            
+    @Override
     public List<Street> findStreets(String pattern) throws DaoException {
       String sql = "SELECT street_code, street_name FROM jc_street WHERE UPPER (street_name) LIKE UPPER(?)";
         List<Street> result = new LinkedList<>();
@@ -119,7 +120,7 @@ public class DictionaryDaoImpl implements DictionaryDao
         } catch(SQLException ex){
         throw new DaoException(ex); 
         }
-        System.out.println("данные получены\n соединение закрыто\n результаты\n:");
+        //System.out.println("данные получены\n соединение закрыто\n результаты\n:");
         return result;
     }
 
