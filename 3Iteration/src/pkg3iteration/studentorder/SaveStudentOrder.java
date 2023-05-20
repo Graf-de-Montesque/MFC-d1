@@ -1,6 +1,8 @@
 package pkg3iteration.studentorder;
 
 import dao.DictionaryDaoImpl;
+import dao.StudentOrderDaoImpl;
+import dao.StudentOrderDao;
 import exception.DaoException;
 import java.time.LocalDate;
 import java.sql.*;
@@ -32,25 +34,27 @@ public class SaveStudentOrder {
 //            System.out.println(r.getOfficeName()+ "\n");
 //        }
         
-    List<CountryArea> ca1 = new DictionaryDaoImpl().findAreas("");
-        for(CountryArea c: ca1){
-            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
-        }
-    List<CountryArea> ca2 = new DictionaryDaoImpl().findAreas("020000000000");
-        for(CountryArea c: ca2){
-            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
-        }
-    List<CountryArea> ca3 = new DictionaryDaoImpl().findAreas("020010000000");
-        for(CountryArea c: ca3){
-            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
-        }
-    List<CountryArea> ca4 = new DictionaryDaoImpl().findAreas("020010010000");
-        for(CountryArea c: ca4){
-            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
-        }
-    //    StudentOrder so = new StudentOrder();
+//    List<CountryArea> ca1 = new DictionaryDaoImpl().findAreas("");
+//        for(CountryArea c: ca1){
+//            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
+//        }
+//    List<CountryArea> ca2 = new DictionaryDaoImpl().findAreas("020000000000");
+//        for(CountryArea c: ca2){
+//            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
+//        }
+//    List<CountryArea> ca3 = new DictionaryDaoImpl().findAreas("020010000000");
+//        for(CountryArea c: ca3){
+//            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
+//        }
+//    List<CountryArea> ca4 = new DictionaryDaoImpl().findAreas("020010010000");
+//        for(CountryArea c: ca4){
+//            System.out.println(c.getArea_id() + ":" + c.getArea_name() + "\n");
+//        }
+    StudentOrder s = buildStudentOrder(10);
+            StudentOrderDao dao = new StudentOrderDaoImpl();
+            dao.saveStudentOrder(s);
 
-    //long ans = saveStudentOrder(so);
+//    long ans = saveStudentOrder(so);
     }
     //нестандартный функционал по возврату идентификатора записи
     static long saveStudentOrder(StudentOrder studentOrder){
@@ -66,12 +70,14 @@ public class SaveStudentOrder {
         RegisterOffice ro = new RegisterOffice(1L,"","");
         so.setMarriageOffice(ro);
         Street street = new Street(1L, "first street");
-        Address address = new Address();
+        Address address = new Address("195000", street, "12", "", "142");
+        so.setMarriageCertificateId("" + (123546 + id));
+        so.setMarriageDate(LocalDate.of(2016, 7, 4));
         
         Adult husband = new Adult("Vlad", "Ivanovich", "Pushka", LocalDate.of(1997,8,24));
         husband.setPassportSeria("" +(1000 + id));
         husband.setPassportNumber("" + (100000+id));
-        husband.setIssueDate(LocalDate.of(2017, 9, 15));
+        husband.setPassportDate(LocalDate.of(2017, 9, 15));
         PassportOffice po1 = new PassportOffice(1L, "","");
         husband.setIssueDepartment(po1);
         husband.setStudentId("" + (100000 + id));
@@ -80,7 +86,7 @@ public class SaveStudentOrder {
         Adult wife = new Adult("Marina", "Pavlovna", "Pushka", LocalDate.of(1997,8,24));
         wife.setPassportSeria("" +(2000 + id));
         wife.setPassportNumber("" + (200000+id));
-        wife.setIssueDate(LocalDate.of(2015, 5, 10));
+        wife.setPassportDate(LocalDate.of(2015, 5, 10));
         PassportOffice po2 = new PassportOffice(2L, "","");
         wife.setIssueDepartment(po2);
         wife.setStudentId("" + (200000 + id));

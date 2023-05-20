@@ -8,6 +8,15 @@ public class Adult extends Person {
     private String passportNumber;
     private LocalDate issueDate;
     private PassportOffice issueDepartment;
+    private LocalDate passportDate;
+
+    public LocalDate getPassportDate() {
+        return passportDate;
+    }
+
+    public void setPassportDate(LocalDate passportDate) {
+        this.passportDate = passportDate;
+    }
     private String university;
     private String studentId;
     private Address address;

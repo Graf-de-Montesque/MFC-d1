@@ -22,7 +22,7 @@ public class DictionaryDaoImpl implements DictionaryDao
                    Config.getProperty(Config.DB_URL),
                    Config.getProperty(Config.DB_LOGIN),
                    Config.getProperty(Config.DB_PASSWORD));
-                   System.out.println("Соединение установлено");
+                   System.out.println("Соединение из метода DictionaryDao установлено");
            return conn;
     }       
            
