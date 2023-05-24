@@ -1,5 +1,6 @@
 package pkg3iteration.studentorder.domain;
 
+import dao.StudentOrderStatus;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

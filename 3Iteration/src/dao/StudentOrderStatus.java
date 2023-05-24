@@ -1,4 +1,4 @@
-package pkg3iteration.studentorder.domain;
+package dao;
 public enum StudentOrderStatus {
     START, CHECKED
 }
