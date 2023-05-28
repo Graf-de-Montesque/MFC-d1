@@ -94,11 +94,12 @@ public class SaveStudentOrder {
         wife.setStudentId("" + (200000 + id));
         wife.setAddress(address);
 
-        Child child1 = new Child("MSveta", "Ruslanovna", "Kukushka", LocalDate.of(1999,4,21));
+        Child child1 = new Child("Sveta", "Ruslanovna", "Kukushka", LocalDate.of(1999,4,21));
         child1.setCertificateNumber(""+(300000 + id));
         child1.setIssueDate(LocalDate.of(2018, 7, 19));
         RegisterOffice ro2 = new RegisterOffice(2L,"","");
         child1.setIssueDepartment(ro2);
+        child1.setAddress(address);
         
         
         Child child2 = new Child("Pipka", "Ruslanovna", "Smackthet", LocalDate.of(1999,4,21));
@@ -106,6 +107,7 @@ public class SaveStudentOrder {
         child2.setIssueDate(LocalDate.of(2018, 7, 19));
         RegisterOffice ro3 = new RegisterOffice(3L,"","");
         child2.setIssueDepartment(ro3);
+        child2.setAddress(address);
 
         so.setHusband(husband);
         so.setWife(wife);
