@@ -16,6 +16,7 @@ import pkg3iteration.studentorder.domain.PassportOffice;
 import pkg3iteration.studentorder.domain.RegisterOffice;
 import pkg3iteration.studentorder.domain.Street;
 import pkg3iteration.studentorder.domain.StudentOrder;
+import pkg3iteration.studentorder.domain.University;
 
 public class SaveStudentOrder {
     
@@ -55,7 +56,12 @@ public class SaveStudentOrder {
             Long id = dao.saveStudentOrder(s);
 //            dao.saveStudentOrder(s);
             System.out.println(id);
-
+            dao.getStudentOrders();
+            
+            List<StudentOrder> soList = dao.getStudentOrders();
+            for(StudentOrder so : soList) {
+                System.out.println(so.getStudentOrderId());
+            }
 //    long ans = saveStudentOrder(so);
     }
     //нестандартный функционал по возврату идентификатора записи
@@ -84,6 +90,9 @@ public class SaveStudentOrder {
         husband.setIssueDepartment(po1);
         husband.setStudentId("" + (100000 + id));
         husband.setAddress(address);
+        University u1 = new University(15L, "Baumanka");
+        husband.setUniversity(u1);
+        
         
         Adult wife = new Adult("Marina", "Pavlovna", "Pushka", LocalDate.of(1997,8,24));
         wife.setPassportSeria("" +(2000 + id));
@@ -93,6 +102,8 @@ public class SaveStudentOrder {
         wife.setIssueDepartment(po2);
         wife.setStudentId("" + (200000 + id));
         wife.setAddress(address);
+        University u2 = new University(15L, "Baumanka");
+        wife.setUniversity(u2);
 
         Child child1 = new Child("Sveta", "Ruslanovna", "Kukushka", LocalDate.of(1999,4,21));
         child1.setCertificateNumber(""+(300000 + id));

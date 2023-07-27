@@ -8,7 +8,10 @@ public abstract class Person {
     private String patronymic;
     private LocalDate dateOfBirth;
     private Address address;
-
+    
+    public Person() {
+        
+    }
     public Address getAddress() {
         return address;
     }

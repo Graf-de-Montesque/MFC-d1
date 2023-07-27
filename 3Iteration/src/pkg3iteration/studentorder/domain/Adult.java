@@ -9,6 +9,11 @@ public class Adult extends Person {
     private LocalDate issueDate;
     private PassportOffice issueDepartment;
     private LocalDate passportDate;
+    private University university;
+
+    public Adult() {
+        
+    }
 
     public LocalDate getPassportDate() {
         return passportDate;
@@ -17,7 +22,7 @@ public class Adult extends Person {
     public void setPassportDate(LocalDate passportDate) {
         this.passportDate = passportDate;
     }
-    private String university;
+    
     private String studentId;
     
     public Adult(String surName, String givenName, String patronymic, LocalDate dateOfBirth) {
@@ -25,12 +30,12 @@ public class Adult extends Person {
     }
     
     
-    public String getUniversity() {
+    public University getUniversity() {
         return university;
     }
 
-    public void setUniversity(String university) {
-        this.university = university;
+    public void setUniversity(University u) {
+        this.university = u;
     }
 
     public String getStudentId() {
@@ -72,7 +77,6 @@ public class Adult extends Person {
     public void setIssueDepartment(PassportOffice issueDepartment) {
         this.issueDepartment = issueDepartment;
     }
-    
 }
 
     
