@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/GIT2/3Iteration/src/dao/StudentOrderStatus.java</file>
-            <file>file:/C:/GIT2/3Iteration/src/pkg3iteration/studentorder/domain/University.java</file>
-            <file>file:/C:/GIT2/3Iteration/src/pkg3iteration/studentorder/domain/Adult.java</file>
-            <file>file:/C:/GIT2/3Iteration/src/pkg3iteration/studentorder/domain/Person.java</file>
-            <file>file:/C:/GIT2/3Iteration/src/pkg3iteration/studentorder/domain/Address.java</file>
-            <file>file:/C:/GIT2/3Iteration/src/dao/StudentOrderDaoImpl.java</file>
-            <file>file:/C:/GIT2/3Iteration/src/pkg3iteration/studentorder/SaveStudentOrder.java</file>
-            <file>file:/C:/GIT2/3Iteration/src/SQL.sql</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
